@@ -1,6 +1,3 @@
-Team Members:
-- Tamer Abu-Shakra, ID: 319147260
-- Shiraz kijzer ,ID: 206375701
 
 Setup Instructions:
 Ensure the existence of the bucket named s3://project2bucketbytamerandshiraz/.

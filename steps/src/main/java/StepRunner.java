@@ -33,7 +33,7 @@ public class StepRunner {
 
         SequenceFileInputFormat.addInputPath(job1, new Path(args[0]));
 
-        String job1Output = "s3://project2bucketbytamer/output1/";
+        String job1Output = "s3://YOURBUCKETNAME/output1/";
         FileOutputFormat.setOutputPath(job1, new Path(job1Output));
 
         // Wait for job1 to complete before proceeding
@@ -57,7 +57,7 @@ public class StepRunner {
 
         TextInputFormat.addInputPath(job2, new Path(job1Output));
 
-        String job2Output = "s3://project2bucketbytamer/output2/";
+        String job2Output = "s3://YOURBUCKETNAME/output2/";
         FileOutputFormat.setOutputPath(job2, new Path(job2Output));
 
         boolean job2Completed = job2.waitForCompletion(true);
@@ -80,7 +80,7 @@ public class StepRunner {
 
         TextInputFormat.addInputPath(job3, new Path(job2Output));
 
-        String job3Output = "s3://project2bucketbytamer/output3/";
+        String job3Output = "s3://YOURBUCKETNAME/output3/";
         FileOutputFormat.setOutputPath(job3, new Path(job3Output));
 
         boolean job3Completed = job3.waitForCompletion(true);
@@ -104,7 +104,7 @@ public class StepRunner {
 
         TextInputFormat.addInputPath(job4, new Path(job3Output));
 
-        String job4Output = "s3://project2bucketbytamer/output4/";
+        String job4Output = "s3://YOURBUCKETNAME/output4/";
         FileOutputFormat.setOutputPath(job4, new Path(job4Output));
 
         boolean job4Completed = job4.waitForCompletion(true);
@@ -127,7 +127,7 @@ public class StepRunner {
         job5.setInputFormatClass(TextInputFormat.class);
 
         TextInputFormat.addInputPath(job5, new Path(job4Output));
-        String job5Output = "s3://project2bucketbytamer/output5/";
+        String job5Output = "s3://YOURBUCKETNAME/output5/";
         FileOutputFormat.setOutputPath(job5, new Path(job5Output));
         boolean job5Completed = job5.waitForCompletion(true);
         if (!job5Completed) {
