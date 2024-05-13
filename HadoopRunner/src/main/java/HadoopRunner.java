@@ -15,12 +15,12 @@ public class HadoopRunner {
 
         String arg1 = args[0];
         String arg2 = args[1];
-        
-        // AWSCredentials credentials = new BasicSessionCredentials
-        //         ("",
-        //                 "",
-        //                 ""
-        //         );
+        //ENTER YOUR Credentials
+        AWSCredentials credentials = new BasicSessionCredentials
+                 ("",
+                         "",
+                         ""
+                 );
         final AmazonElasticMapReduce emr = AmazonElasticMapReduceClient.builder()
                 .withRegion(Regions.US_EAST_1)
                 .withCredentials(new AWSStaticCredentialsProvider(credentials))
