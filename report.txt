@@ -1,0 +1,71 @@
+in all of the run we used 8 instances and instace type was M4XLARGE.
+on 100% on the input:
+Total time: 2H40m
+
+The number of key-value pairs that were sent from the mappers to the reducers:
+
+step1:
+Map output records=5899388666
+Map output bytes=100828961890
+
+step2:
+Map output records=1297716842
+Map output bytes=28979943871
+
+step3:
+Map output records=1297716796
+Map output bytes=70578396083
+
+step4:
+Map output records=1297716796
+Map output bytes=47334721229
+
+step5:
+Map output records=648858444
+Map output bytes=26507013422
+
+
+tested on partial years until 1950:
+when we set the max split size to 32MB :
+conf1.set("mapred.max.split.size", String.valueOf(32 * 1024 * 1024)); // 32 MB
+total time: 2H40M
+
+when we set the max split size to Number of bytes read/Number of split that we got from the splits of 32 MB:
+conf1.set("mapred.max.split.size", String.valueOf(26360131647L/2099));
+total time: 3H23min
+
+when we set the max split size to unthouched :
+total time: 2H05M
+
+
+the colloction we took are after filter of minPmi=0.5 and relMinPmi= 0.2
+
+10 good collocation:
+1900 Cassiopea xamachana	0.9994683302231864
+1900 HALLIWELL SUTCLIFFE	0.9994807457038184
+1900 PEER GYNT	0.9994925753311412
+1900 Kaji Tsunekichi	0.9995619926800404
+1900 Pusat Tasek	0.9995860858725084
+1900 YOGENDRA MAKWANA	0.999655045194225
+1900 CUTCLIFFE HYNE	0.9996745901193614
+1900 Hetch Hetchy	0.9997050501165727
+1900 Pilgrimes Contayning	0.999722647040536
+1900 ECTHESIS CHRONICA	0.9997727569213457
+
+We filtered out all pairs of words with an NPMI (Normalized Pointwise Mutual Information) 
+value of exactly 1. This decision was made because, in cases where 
+two words w1 and w2 have c(w1,w2)=c(w2)=c(w1), the formula does not necessarily imply that 
+w1 and w2 form a meaningful collocation, even though they might have a high NPMI value.
+Thus, a high NPMI value of 1 does not always indicate a strong or relevant association between the words.
+
+10 bad collocations:
+1520 Christian regime	0.5001520214388131
+1520 Christian rods	0.5001520214388131
+1520 matter God	0.5001520214388131
+1520 Christian regulations	0.5001520214388131
+1520 X Century	0.5001520214388131
+1790 reader mufl	0.5000000302787655
+1790 Melmoth felt	0.5000005994309291
+1790 mes derniers	0.5000005994309291
+1790 drinkers complained	0.5000008969646906
+1790 posterior surface	0.5000011069108072
