@@ -1,7 +1,7 @@
-﻿# AWS-project2
+# AWS-project2
 Setup Instructions:
-Ensure the existence of the bucket named s3://project2bucketbytamerandshiraz/.
-Inside the bucket, ensure there is a logs/ folder: s3://project2bucketbytamerandshiraz/logs/.
+Ensure the existence of the bucket named s3://project2bucketbytamer/.
+Inside the bucket, ensure there is a logs/ folder: s3://project2bucketbytamer/logs/.
 Ensure to updaye on the credentials.
 Upload steps-1.0.jar to the bucket.
 Run HadoopRunner-1.jar using the command:
