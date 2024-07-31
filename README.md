@@ -4,8 +4,11 @@ This project involves implementing an automated collocation extraction system us
 
 ## System Architecture
 The system comprises three main components:
+
 -Local Application: Initiates the map-reduce job on Amazon EMR and manages interactions with AWS services.
+
 -Amazon Elastic MapReduce (EMR): Distributes the collocation extraction task across multiple nodes and processes the Google 2-grams dataset.
+
 -Amazon S3: Stores input datasets, intermediate data, and output results.
 
 ## Program Description:
